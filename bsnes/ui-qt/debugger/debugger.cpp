@@ -93,6 +93,7 @@ Debugger::Debugger() {
   tilemapViewer = new TilemapViewer;
   oamViewer = new OamViewer;
   cgramViewer = new CgramViewer;
+  memoryEditor = new MemoryEditor();
 
   registerEditCPU = new RegisterEditCPU(SNES::cpu);
   registerEditSMP = new RegisterEditSMP;
@@ -249,6 +250,14 @@ Debugger::Debugger() {
   connect(debugSFX, SIGNAL(traceStateChanged(int)), tracer, SLOT(setSfxTraceState(int)));
   connect(debugSGB, SIGNAL(traceStateChanged(int)), tracer, SLOT(setSgbTraceState(int)));
   connect(traceMask->defaultAction(), SIGNAL(toggled(bool)), tracer, SLOT(setTraceMaskState(bool)));
+
+  breakpointEditor->show();
+  propertiesViewer->show();
+  tileViewer->show();
+  tilemapViewer->show();
+  oamViewer->show();
+  cgramViewer->show();
+  memoryEditor->show();
 
   frameCounter = 0;
   synchronize();
