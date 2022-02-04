@@ -41,6 +41,7 @@ Debugger *debugger;
 #include "ppu/tilemap-viewer.cpp"
 #include "ppu/oam-viewer.cpp"
 #include "ppu/cgram-viewer.cpp"
+#include "ppu/ppu-tab-window.cpp"
 
 Debugger::Debugger() {
   setObjectName("debugger");
@@ -93,6 +94,7 @@ Debugger::Debugger() {
   tilemapViewer = new TilemapViewer;
   oamViewer = new OamViewer;
   cgramViewer = new CgramViewer;
+  ppuTabWindow = new PpuTabWindow;
   memoryEditor = new MemoryEditor();
 
   registerEditCPU = new RegisterEditCPU(SNES::cpu);
@@ -253,10 +255,11 @@ Debugger::Debugger() {
 
   breakpointEditor->show();
   propertiesViewer->show();
-  tileViewer->show();
-  tilemapViewer->show();
-  oamViewer->show();
-  cgramViewer->show();
+  //tileViewer->show();
+  //tilemapViewer->show();
+  //oamViewer->show();
+  //cgramViewer->show();
+  ppuTabWindow->show();
   memoryEditor->show();
 
   frameCounter = 0;
